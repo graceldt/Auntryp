@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import "@fontsource/concert-one/400.css";
 import "@fontsource/oi/400.css"; 
@@ -25,8 +26,8 @@ const Navigation = () => {
         }}
             role="presentation" onClick={toggleDrawer(false)}>
             <List className='list'>
-                {['ACCUEIL', 'DESTINATIONS', 'ASTUCES', 'A PROPOS DE NOUS'].map((text, index) => (
-                    <ListItem key={text} disablePadding
+                {nav_link.map(navigate => (
+                    <ListItem key={navigate.text} disablePadding
 
 
                     >
@@ -35,11 +36,18 @@ const Navigation = () => {
                                 <Typography
                                     sx={{
                                         fontFamily: "Concert One",
-                                        fontSize: "1.5rem",
-                                        color: "#3e2723"
+                                        fontSize: "1.5rem"
                                     }}
                                 >
-                                    {text}
+                                    
+
+                                    <Link 
+                                        href={navigate.link}
+                                        sx={{
+                                            textDecoration: "none",
+                                            color: "#3e2723"
+                                        }}
+                                    >{navigate.title}</Link>
                                 </Typography>
 
                             </ListItemText>
@@ -48,35 +56,51 @@ const Navigation = () => {
                 ))}
             </List>
             <Divider />
-            <List className='social-link'>
-                <ListItem disablePadding>
-                    <ListItemButton >
-                        <ListItemText primary='Instagram'/>
-                    </ListItemButton>
-                </ListItem>
-            </List>
         </Box>
     );
 
     return (
-        <Box>
-            <Button onClick={toggleDrawer(true)} 
-                sx={{
-                    fontFamily: "Oi",
-                    fontSize: "2.5rem",
-                    color: "#3e2723",
-                }}
-            >AUNTRYP</Button>
-            <Drawer
-                PaperProps={{
-                    sx: {
-                        backgroundColor: "#FDF2E9",
-                    }
-                }}
-                open={open} onClose={toggleDrawer(false)}>
-                {DrawerList}
-            </Drawer>
-        </Box>
+        <header>
+            <Box>
+                <Button onClick={toggleDrawer(true)} 
+                    sx={{
+                        fontFamily: "Oi",
+                        fontSize: "2.5rem",
+                        color: "#3D2B1F",
+                    }}
+                >AUNTRYP</Button>
+                <Drawer
+                    PaperProps={{
+                        sx: {
+                            backgroundColor: "#fbf7ee",
+                        }
+                    }}
+                    open={open} onClose={toggleDrawer(false)}>
+                    {DrawerList}
+                </Drawer>
+            </Box>
+        </header>
     );
 }
 export default Navigation
+
+
+
+const nav_link = [
+    {
+        title: "ACCUEIL",
+        link: "/home"
+    },
+    {
+        title: "DESTINATIONS",
+        link: "/destinations"
+    },
+    {
+        title: "ASTUCES",
+        link: "/astuces"
+    },
+    {
+        title: "A PROPOS DE NOUS",
+        link: "/a-propos-de-nous"
+    },
+]

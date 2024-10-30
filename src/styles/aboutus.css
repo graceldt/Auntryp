@@ -1,0 +1,12 @@
+.rectangle {
+    border :  1px  solid ;
+    width : 60%;
+    height: 500px;
+}
+
+.square {
+  display: flex;
+  height: 110px;
+  width: 90px;
+  border :  1px solid;
+}

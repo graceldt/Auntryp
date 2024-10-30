@@ -1,0 +1,31 @@
+
+
+.articleContainer {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.articleContainer a {
+    text-decoration: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.card img {
+    width: 500px;
+    height: 330px;
+}
+
+.card-text {
+    padding-top: 15%;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
