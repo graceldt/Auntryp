@@ -1,10 +1,13 @@
 import "../styles/aboutus.css";
+import Brésil from "../assets/axp-photography-bqjSIXDD8W4-unsplash.jpg"
+
+
 
 function Postcard(){
         return(
-            <div className="rectangle">
-                <div className="square"></div>
-            </div>
+            <article className="brésil"> 
+            <img src={Brésil} alt="Brésil" />      
+            </article>
         )
 }
 
